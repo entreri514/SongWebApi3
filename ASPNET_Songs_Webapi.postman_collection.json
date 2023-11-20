@@ -1,0 +1,66 @@
+{
+	"info": {
+		"_postman_id": "9e11be98-9d87-4db1-8e66-0e877a880ec5",
+		"name": "ASPNET_Songs_Webapi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "31184745"
+	},
+	"item": [
+		{
+			"name": "Get All",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Id\": 4,\r\n    \"Title\": \"Animals\",\r\n    \"Artist\": \"Architects\",\r\n    \"Album\": \"For Those That Wish to Exist\",\r\n    \"ReleaseDate\": \"2020-08-21\",\r\n    \"Genre\": \"Rock\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://localhost:7031/api/Songs/4"
+			},
+			"response": []
+		},
+		{
+			"name": "Remove",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "https://localhost:7031/api/Songs/3"
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"method": "PUT",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"Title\": \"Love the Way You Hate Me\",\r\n\"Artist\": \"Like a Storm\",\r\n\"Album\": \"Single\",\r\n\"ReleaseDate\": \"2014-08-19\",\r\n\"Genre\": \"Rock\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://localhost:7031/api/Songs"
+			},
+			"response": []
+		}
+	]
+}
