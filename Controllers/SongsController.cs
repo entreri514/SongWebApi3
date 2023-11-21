@@ -20,61 +20,61 @@ namespace SongWebApi.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            var song = _context.Songs.ToList();
-            return StatusCode(200,song);
+            var getSong = _context.Songs.ToList();
+            return StatusCode(200,getSong);
         }
 
         // GET api/<SongsController>/5
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            var songs = _context.Songs.Find(id);
-            if (songs==null)
+            var getSong = _context.Songs.Find(id);
+            if (getSong==null)
             {
                 return NotFound();
             }
 
-            return StatusCode(200,songs);
+            return StatusCode(200,getSong);
         }
 
         // POST api/<SongsController>
         [HttpPost]
-        public IActionResult Post([FromBody] Song song)
+        public IActionResult Post([FromBody] Song addSong)
         {
-            _context.Songs.Add(song);
+            _context.Songs.Add(addSong);
             _context.SaveChanges();
-            return StatusCode(201,song);
+            return StatusCode(201,addSong);
         }
 
         // PUT api/<SongsController>/5
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody] Song updatedSong)
         {
-            var currentSong = _context.Songs.Find(id);
-            if (currentSong==null)
+            var updateSong = _context.Songs.Find(id);
+            if (updateSong==null)
             {
                 return NotFound();
             }
-            currentSong.Title = updatedSong.Title;
-            currentSong.Artist = updatedSong.Artist;
-            currentSong.Album = updatedSong.Album;
-            currentSong.ReleaseDate = updatedSong.ReleaseDate;
-            currentSong.Genre = updatedSong.Genre;
-            _context.Update(currentSong);
+            updateSong.Title = updatedSong.Title;
+            updateSong.Artist = updatedSong.Artist;
+            updateSong.Album = updatedSong.Album;
+            updateSong.ReleaseDate = updatedSong.ReleaseDate;
+            updateSong.Genre = updatedSong.Genre;
+            _context.Update(updateSong);
             _context.SaveChanges();
-            return StatusCode(200, currentSong);
+            return StatusCode(200, updateSong);
         }
 
         // DELETE api/<SongsController>/5
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            var songs = _context.Songs.Find(id);
-            if (songs==null)
+            var deleteSong = _context.Songs.Find(id);
+            if (deleteSong==null)
             {
                 return NotFound();
             }
-            _context.Songs.Remove(songs);
+            _context.Songs.Remove(deleteSong);
             _context.SaveChanges();
             return NoContent();
 
